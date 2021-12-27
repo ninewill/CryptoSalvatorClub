@@ -1,61 +1,58 @@
 @charset "UTF-8";
 @import "./utils/_utils.scss";
 
-@mixin sitemap($language) {
+// * ==========================================================================
+// * 網站導覽
+// * ==========================================================================
 
-    // * ==========================================================================
-    // * 網站導覽
-    // * ==========================================================================
+.sitemap-link {
+    counter-reset: sitemap-counter;
 
-    .sitemap-link {
-        counter-reset: sitemap-counter;
-
-        @include exclude-content {
-            list-style: none;
-            padding-left: 0px;
-            margin-top: 2rem;
-            margin-bottom: 2rem;
-        }
-
-        @include min-width(768px) {
-            display: flex;
-            flex-wrap: wrap;
-        }
-
-        > li {
-            width: 100%;
-            padding-bottom: 20px;
-            counter-increment: sitemap-counter;
-
-            @include min-width(768px) {
-                width: 50%;
-                padding-left: 10px;
-                padding-right: 10px;
-            }
-
-            @include min-width(1025px) {
-                width: 33.33%;
-            }
-        }
+    @include exclude-content {
+        list-style: none;
+        padding-left: 0px;
+        margin-top: 2rem;
+        margin-bottom: 2rem;
     }
 
-    .sitemap-link-btn {
-        display: block;
-        font-weight: bold;
-        padding: 10px 15px;
-        background-color: $color-primary-1;
-        color: $color-white;
-        text-decoration: none;
+    @include min-width(768px) {
+        display: flex;
+        flex-wrap: wrap;
+    }
 
-        &::before {
-            content: "(" counter(sitemap-counter) ") ";
+    > li {
+        width: 100%;
+        padding-bottom: 20px;
+        counter-increment: sitemap-counter;
+
+        @include min-width(768px) {
+            width: 50%;
+            padding-left: 10px;
+            padding-right: 10px;
         }
 
         @include min-width(1025px) {
-            &:hover, &:focus {
-                background-color: $color-primary-2;
-                color: $color-white;
-            }
+            width: 33.33%;
+        }
+    }
+}
+
+.sitemap-link-btn {
+    display: block;
+    font-weight: bold;
+    padding: 10px 15px;
+    background-color: $color-primary-1;
+    color: $color-white;
+    text-decoration: none;
+
+    &::before {
+        content: "(" counter(sitemap-counter) ") ";
+    }
+
+    @include min-width(1025px) {
+        &:hover, &:focus {
+            background-color: $color-primary-2;
+            color: $color-white;
         }
     }
 }

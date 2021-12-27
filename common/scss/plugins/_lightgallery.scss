@@ -21,7 +21,7 @@
 
 .lg-icon {
     font-family: lg;
-    // speak: none;
+    speak: none;
     font-style: normal;
     font-weight: 400;
     font-variant: normal;
@@ -965,7 +965,7 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item.lg-complete .lg-object 
 }
 
 .lg-outer .lg-item {
-    background: url('../../../images/loading.gif') center center no-repeat;
+    background: url('./../images/loader.gif') center center no-repeat;
     display: none !important
 }
 

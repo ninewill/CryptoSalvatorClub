@@ -1,511 +1,502 @@
 @charset "UTF-8";
 @import "./utils/_utils.scss";
 
-@mixin album($language) {
+// * ==========================================================================
+// * 鍵盤操作相簿說明
+// * ==========================================================================
 
-    // * ==========================================================================
-    // * 鍵盤操作相簿說明
-    // * ==========================================================================
+// 按鈕
+.instruction-btn {
+  display: none;
+  padding: 10px 15px;
+  margin-bottom: 1rem;
+  line-height: 1.2em;
+  text-decoration: none;
+  color: $color-white;
+  background-color: $color-primary-1;
 
-    // 按鈕
-    .instruction-btn {
-        display: none;
-        padding: 10px 15px;
-        margin-bottom: 1rem;
-        line-height: 1.2em;
-        text-decoration: none;
-        color: $color-white;
-        background-color: $color-primary-1;
+  &.is-open {
+    background-color: $color-primary-2;
+  }
 
-        &.is-open {
-            background-color: $color-primary-2;
-        }
+  @include min-width(480px) {
+    padding: 15px 17px;
+  }
 
-        @include min-width(480px) {
-            padding: 15px 17px;
-        }
+  @include min-width(1025px) {
+    display: inline-block;
 
-        @include min-width(1025px) {
-            display: inline-block;
-
-            &:hover, &:focus {
-                color: $color-white;
-                background-color: $color-primary-2;
-            }
-
-            @at-root .no-js & {
-                display: none;
-            }
-        }
+    &:hover,
+    &:focus {
+      color: $color-white;
+      background-color: $color-primary-2;
     }
 
-    // 列表
-    .instruction-menu {
-        display: none;
-        background-color: $color-white;
-
-        > li {
-            strong {
-                color: inherit;
-            }
-        }
-
-        @include exclude-content {
-            padding: 15px 20px 15px 45px;
-            margin-bottom: 1rem;
-            border-radius: 7px;
-        }
+    @at-root .no-js & {
+      display: none;
     }
+  }
+}
 
-    // * ==========================================================================
-    // * 相簿功能
-    // * ==========================================================================
+// 列表
+.instruction-menu {
+  display: none;
+  background-color: transparent;
 
-    .album-list {
-        position: relative;
-        overflow: hidden;
-
-        > li {
-            width: 100%;
-            position: absolute;
-            top: 0px;
-            z-index: -9999;
-
-            @at-root .no-js & {
-                display: none;
-
-                &:first-child {
-                    display: block;
-                    position: static;
-                }
-            }
-        }
-
-        // 排除內容區塊的 UL 樣式
-        @include exclude-content{
-            list-style: none;
-            padding-left: 0px;
-            margin-bottom: 0px;
-
-            img {
-                margin-bottom: 0px;
-            }
-        }
-
-        @at-root .no-js & {
-            display: none;
-        }
+  > li {
+    strong {
+      color: inherit;
     }
+  }
 
-    .album-preview {
-        width: 100%;
-        height: 0px;
-        padding-bottom: 66.66%;
+  @include exclude-content {
+    padding: 15px 45px 15px 20px;
+    margin-bottom: 1rem;
+    border-radius: 7px;
+  }
+}
+
+// * ==========================================================================
+// * 相簿功能
+// * ==========================================================================
+
+.album-list {
+  position: relative;
+  overflow: hidden;
+
+  > li {
+    width: 100%;
+    position: absolute;
+    top: 0px;
+    z-index: -9999;
+
+    @at-root .no-js & {
+      display: none;
+
+      &:first-child {
         display: block;
-        position: relative;
+        position: static;
+      }
+    }
+  }
 
-        > img {
-            width: 100%;
-            height: 100%;
-            position: absolute;
-            top: 0px;
-            left: 0px;
-            object-fit: cover;
+  // 排除內容區塊的 UL 樣式
+  @include exclude-content {
+    list-style: none;
+    padding-left: 0px;
+    margin-bottom: 0px;
 
-            @include exclude-content {
-                margin: 0px;
-            }
-        }
+    img {
+      margin-bottom: 0px;
+    }
+  }
 
-        &.has-autosize {
-            height: auto;
-            padding-bottom: 0px;
+  @at-root .no-js & {
+    display: none;
+  }
+}
 
-            > img {
-                height: auto;
-                position: static;
-                object-fit: fill;
-            }
-        }
+.album-preview {
+  width: 100%;
+  height: 0px;
+  padding-bottom: 66.66%;
+  display: block;
+  position: relative;
 
-        &::after {
-            content: '';
-            width: 100%;
-            height: 100%;
-            display: block;
-            position: absolute;
-            top: 0px;
-            left: 0px;
-            box-shadow: $focus-border-inset;
-            opacity: 0;
-        }
+  > img {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    object-fit: cover;
 
-        @at-root .album-list + & {
-            cursor: pointer;
-        }
+    @include exclude-content {
+      margin: 0px;
+    }
+  }
 
-        // @at-root .no-js .album-list + & {
-        //     display: none;
-        // }
+  &.has-autosize {
+    height: auto;
+    padding-bottom: 0px;
 
-        @at-root .no-js & {
-            cursor: default;
-        }
+    > img {
+      height: auto;
+      position: static;
+      object-fit: fill;
+    }
+  }
 
+  &::after {
+    content: "";
+    width: 100%;
+    height: 100%;
+    display: block;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    box-shadow: $focus-border-inset;
+    opacity: 0;
+  }
+
+  @at-root .album-list + & {
+    cursor: pointer;
+  }
+
+  // @at-root .no-js .album-list + & {
+  //     display: none;
+  // }
+
+  @at-root .no-js & {
+    cursor: default;
+  }
+
+  @include min-width(1025px) {
+    &:focus {
+      box-shadow: none;
+
+      &::after {
+        opacity: 1;
+      }
+    }
+  }
+}
+
+
+.album-item {
+  display: block;
+  position: relative;
+
+  &::after {
+    content: "";
+    width: 100%;
+    height: 100%;
+    display: block;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    box-shadow: $focus-border-inset;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+  }
+
+  @include min-width(1025px) {
+    &:hover,
+    &:focus {
+      box-shadow: none;
+    }
+
+    &:focus::after {
+      opacity: 1;
+    }
+  }
+}
+
+// * ==========================================================================
+// * 展件功能
+// * ==========================================================================
+
+.exhibit {
+  @at-root .carousel & {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+  }
+
+  @include min-width(1025px) {
+    display: flex;
+    align-items: flex-start;
+  }
+}
+
+.exhibit-image {
+  position: relative;
+  background-color: $color-black;
+
+  @include min-width(1025px) {
+    width: 50%;
+  }
+
+  &.has-icon {
+    &::before {
+      content: "";
+      width: 35px;
+      height: 35px;
+      display: block;
+      border-radius: 100%;
+      background: $color-primary-1 url("../images/icon/search.svg") no-repeat center/60%;
+      position: absolute;
+      right: 10px;
+      bottom: 10px;
+      pointer-events: none;
+      z-index: 1;
+
+      @include min-width(480px + 1px) {
+        width: 45px;
+        height: 45px;
+        right: 20px;
+        bottom: 20px;
+      }
+    }
+  }
+}
+
+.exhibit-content {
+  padding-top: 25px;
+  padding-bottom: 25px;
+
+  @include min-width(1025px) {
+    width: 50%;
+    padding-top: 0px;
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+
+  p:last-child {
+    margin-bottom: 0px;
+  }
+}
+.exhibit-content-w-100 {
+  padding-top: 25px;
+  padding-bottom: 25px;
+
+  @include min-width(1025px) {
+    width: 100%;
+    padding-top: 0px;
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+
+  p:last-child {
+    margin-bottom: 0px;
+  }
+}
+
+.exhibit-title {
+  display: inline-block;
+  margin-top: 0px;
+  margin-bottom: 0.5rem;
+  font-size: 1.8rem;
+  letter-spacing: 1px;
+  color: $color-primary-1;
+
+  @at-root html[lang="en"] & {
+    letter-spacing: 0px;
+    margin-bottom: 0px;
+  }
+
+  @at-root .exhibit-around & {
+    margin-top: 0px;
+  }
+
+  @at-root .carousel & {
+    margin-top: 0px;
+  }
+
+  @include min-width(768px) {
+    font-size: 2rem;
+  }
+
+  @include min-width(1025px) {
+    margin-top: 1.5rem;
+  }
+}
+
+.obj-title{
+  font-size: 1.3rem;
+  
+  @include min-width(768px) {
+    font-size: 1.5rem;
+  }
+}
+
+.scrollBox {
+  height: auto;
+  overflow-y: auto;
+  @include min-width(1024px) {
+    height: 300px;
+  }
+}
+
+.sub-title {
+  margin-top: 0;
+  margin-bottom: 0;
+  font-size: 1.5rem;
+
+  @include min-width(768px) {
+    font-size: 2rem;
+  }
+}
+
+.dots-list {
+  @include exclude-content {
+    list-style: none;
+    line-height: 1.95em;
+    margin-top: 1rem;
+    padding-left: 1em;
+  }
+
+  @at-root .exhibit-content & {
+    font-size: 90%;
+  }
+
+  @at-root html[lang="en"] & {
+    font-size: 110%;
+  }
+
+  > li {
+    position: relative;
+
+    &::before {
+      content: "";
+      width: 7px;
+      height: 7px;
+      display: block;
+      border-radius: 100%;
+      background-color: $color-primary-1;
+      position: absolute;
+      top: calc((1.95em - 7px) / 2);
+      left: -1em;
+    }
+  }
+}
+
+// * ==========================================================================
+// * 展件相簿（左右排列圖文相簿）
+// * ==========================================================================
+
+.exhibit-around {
+  @include exclude-content {
+    list-style: none;
+    padding-left: 0px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+  }
+
+  > li {
+    margin-top: 2.5rem;
+    margin-bottom: 2.5rem;
+
+    &:last-child {
+      margin-bottom: 0px;
+    }
+
+    &:nth-child(odd) {
+      .exhibit {
+        flex-direction: row;
+      }
+
+      .exhibit-content {
         @include min-width(1025px) {
-            &:focus {
-                box-shadow: none;
-
-                &::after {
-                    opacity: 1;
-                }
-            }
+          padding-right: 0px;
         }
+      }
     }
 
-    .album-item {
-        display: block;
-        position: relative;
+    &:nth-child(even) {
+      .exhibit {
+        flex-direction: row-reverse;
+      }
 
-        &::after {
-            content: '';
-            width: 100%;
-            height: 100%;
-            display: block;
-            position: absolute;
-            top: 0px;
-            left: 0px;
-            box-shadow: $focus-border-inset;
-            opacity: 0;
-            transition: opacity 0.2s ease;
-        }
-
+      .exhibit-content {
         @include min-width(1025px) {
-            &:hover, &:focus {
-                box-shadow: none;
-            }
-
-            &:focus::after {
-                opacity: 1;
-            }
+          padding-left: 0px;
         }
+      }
     }
+  }
+}
 
-    // * ==========================================================================
-    // * 展件功能
-    // * ==========================================================================
+.align-left {
+  padding-right: 30px !important;
+  padding-left: 0;
+}
 
-    .exhibit {
-        @at-root .carousel & {
-            padding-top: 3rem;
-            padding-bottom: 3rem;
-        }
+// * ==========================================================================
+// * 展件相簿（水平排列圖文相簿）
+// * ==========================================================================
 
-        @include min-width(1025px) {
-            display: flex;
-            align-items: flex-start;
-        }
+.exhibit-rower {
+  display: block;
+
+  @include min-width(1025px) {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  @include exclude-content {
+    list-style: none;
+    padding-left: 0px;
+    margin-top: 2rem;
+    margin-bottom: 0rem;
+  }
+
+  .exhibit {
+    display: block;
+  }
+
+  .exhibit-image {
+    width: 100%;
+  }
+
+  .exhibit-content {
+    width: 100%;
+
+    @include min-width(1025px) {
+      padding-left: 0px;
+      padding-right: 0px;
     }
+  }
 
-    .exhibit-image {
-        position: relative;
-        background-color: $color-black;
+  // 三個一排排列
+  &.col-33 {
+    > li {
+      @include min-width(1025px) {
+        width: calc((100% - 40px) / 3);
+        margin-left: 10px;
+        margin-right: 10px;
 
-        @include min-width(1025px) {
-            width: 50%;
+        &:nth-child(3n + 1) {
+          margin-left: 0px;
         }
 
-        &.has-icon {
-            &::after {
-                content: '';
-                width: 35px;
-                height: 35px;
-                display: block;
-                border-radius: 100%;
-                background: $color-primary-1 url('../images/icon/search.svg') no-repeat center/60%;
-                position: absolute;
-                right: 10px;
-                bottom: 10px;
-                pointer-events: none;
-
-                @include min-width(480px + 1px) {
-                    width: 45px;
-                    height: 45px;
-                    right: 20px;
-                    bottom: 20px;
-                }
-            }
+        &:nth-child(3n + 3) {
+          margin-right: 0px;
         }
+      }
     }
+  }
 
-    .exhibit-content {
-        padding-top: 25px;
-        padding-bottom: 25px;
-        
-        @include min-width(1025px) {
-            width: 50%;
-            padding-top: 0px;
-            padding-left: 30px;
-            padding-right: 30px;
+  // 二個一排排列
+  &.col-50 {
+    > li {
+      @include min-width(1025px) {
+        width: calc((100% - 30px) / 2);
+        margin-left: 15px;
+        margin-right: 15px;
+
+        &:nth-child(2n + 1) {
+          margin-left: 0px;
         }
 
-        p:last-child {
-            margin-bottom: 0px;
+        &:nth-child(2n + 2) {
+          margin-right: 0px;
         }
+      }
     }
+  }
+}
 
-    .exhibit-title {
-        margin-top: 0px;
-        font-size: 1.8rem;
-        font-weight: bold;
-        color: $color-primary-1;
+.m-column {
+  display: flex;
+  flex-direction: column;
+  @include min-width(1025px) {
+    flex-direction: row;
+  }
 
-        @if $language == en {
-            letter-spacing: 0px;
-            margin-bottom: 0px;
-        } @else {
-            letter-spacing: 1px;
-            margin-bottom: 1.5rem;
-        }
-
-        @at-root .exhibit-around & {
-            margin-top: 0px;
-        }
-
-        @at-root .carousel & {
-            margin-top: 0px;
-        }
-
-        @include min-width(768px) {
-            font-size: 2rem;
-        }
-
-        @include min-width(1025px) {
-            margin-top: 1.5rem;
-        }
+  > li:last-child {
+    margin-top: 2rem;
+    @include min-width(1025px) {
+      margin-top: 0;
     }
-
-    .dots-list {
-        @include exclude-content {
-            list-style: none;
-            line-height: 1.95em;
-            padding-left: 1em;
-
-            @if $language == en {
-                margin-bottom: 1.5rem;
-            }
-        }
-
-        @at-root .exhibit-content & {
-            @if $language == en {
-                font-size: 110%;
-            } @else {
-                font-size: 90%;
-            }
-        }
-
-        > li {
-            position: relative;
-
-            &::before {
-                content: '';
-                width: 7px;
-                height: 7px;
-                display: block;
-                border-radius: 100%;
-                background-color: $color-primary-1;
-                position: absolute;
-                top: calc((1.95em - 7px)/2);
-                left: -1em;
-            }
-        }
-    }
-
-    // * ==========================================================================
-    // * 展件相簿（左右排列圖文相簿）
-    // * ==========================================================================
-
-    .exhibit-around {
-
-        @include exclude-content {
-            list-style: none;
-            padding-left: 0px;
-            margin-top: 0px;
-            margin-bottom: 0px;
-        }
-
-        > li {
-            margin-top: 5rem;
-            margin-bottom: 5rem;
-            
-            &:last-child {
-                margin-bottom: 0px;
-            }
-
-            &:nth-child(odd) {
-                .exhibit {
-                    flex-direction: row;
-                }
-
-                .exhibit-content {
-                    @include min-width(1025px) {
-                        padding-right: 0px;
-                    }
-                }
-            }
-
-            &:nth-child(even) {
-                .exhibit {
-                    flex-direction: row-reverse;
-                }
-
-                .exhibit-content {
-                    @include min-width(1025px) {
-                        padding-left: 0px;
-                    }
-                }
-            }
-        }
-    }
-
-    // * ==========================================================================
-    // * 展件相簿（水平排列圖文相簿）
-    // * ==========================================================================
-
-    .exhibit-rower {
-        display: block;
-
-        @include min-width(1025px) {
-            display: flex;
-            flex-wrap: wrap;
-        }
-
-        @include exclude-content {
-            list-style: none;
-            padding-left: 0px;
-            margin-top: 2rem;
-            margin-bottom: 2rem;
-        }
-
-        .exhibit {
-            display: block;
-        }
-
-        .exhibit-image {
-            width: 100%;
-        }
-
-        .exhibit-content {
-            width: 100%;
-
-            @include min-width(1025px) {
-                padding-left: 0px;
-                padding-right: 0px;
-            }
-        }
-
-        // 三個一排排列
-        &.col-33 {
-            > li {
-                @include min-width(1025px) {
-                    width: calc((100% - 40.5px)/3);
-                    margin-left: 10px;
-                    margin-right: 10px;
-
-                    &:nth-child(3n + 1) {
-                        margin-left: 0px;
-                    }
-
-                    &:nth-child(3n + 3) {
-                        margin-right: 0px;
-                    }
-                }
-            }
-        }
-
-        // 二個一排排列
-        &.col-50 {
-            > li {
-                @include min-width(1025px) {
-                    width: calc((100% - 30.5px)/2);
-                    margin-left: 15px;
-                    margin-right: 15px;
-
-                    &:nth-child(2n + 1) {
-                        margin-left: 0px;
-                    }
-
-                    &:nth-child(2n + 2) {
-                        margin-right: 0px;
-                    }
-                }
-            }
-        }
-    }
-
-    // * ==========================================================================
-    // * 針對 IE11 瀏覽器調整 lightgallery 套件的按鈕 icon
-    // * ==========================================================================
-
-    @include hack-ie {
-        .lg {
-            .lg-icon {
-                background: {
-                    repeat: no-repeat;
-                    position: center;
-                    size: 50%;
-                }
-                opacity: 0.8;
-                color: transparent;
-
-                @include min-width(1025px) {
-                    &:hover, &:focus {
-                        opacity: 1;
-                        color: transparent;
-                    }
-                }
-
-                &::before, &::after {
-                    opacity: 0;
-                    color: transparent;
-                }
-
-                &#lg-zoom-in {
-                    background-image: url('../images/icon/lg-zoom-in.svg');
-                }
-
-                &#lg-zoom-out {
-                    background-image: url('../images/icon/lg-zoom-out.svg');
-                }
-
-                &.lg-close {
-                    background-image: url('../images/icon/lg-close.svg');
-                }
-
-                &.lg-next {
-                    background-image: url('../images/icon/lg-arrow-right.svg');
-                }
-
-                &.lg-prev {
-                    background-image: url('../images/icon/lg-arrow-left.svg');
-                }
-
-                &.lg-toogle-thumb {
-                    background-image: url('../images/icon/lg-menu.svg');
-                }
-            }
-        }
-
-        .lg-outer .lg .lg-thumb-item {
-            position: relative;
-            overflow: hidden;
-
-            img {
-                width: auto;
-                position: absolute;
-                left: 50%;
-                transform: translateX(-50%);
-            }
-        }
-    }
+  }
 }

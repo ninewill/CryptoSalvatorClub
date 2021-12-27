@@ -1,71 +1,82 @@
 @charset "UTF-8";
 @import "./utils/_utils.scss";
 
-@mixin grid($language) {
+// * ==========================================================================
+// * 設定格狀版型排列規則
+// * ==========================================================================
 
-    // * ==========================================================================
-    // * 設定格狀版型排列規則
-    // * ==========================================================================
+.align {
+  @include exclude-content {
+    list-style: none;
+    padding-left: 0px;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+  }
 
-    .align {
-        @include exclude-content {
-            list-style: none;
-            padding-left: 0px;
-            margin-top: 2rem;
-            margin-bottom: 2rem;
+  @include min-width(1025px) {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+
+    > li {
+      width: 50%;
+      padding-left: 10px;
+      padding-right: 10px;
+
+      $col-width: 100, 80, 75, 66, 60, 50, 40, 33, 25, 20;
+
+      @each $width in $col-width {
+        &.col-#{$width} {
+          @if $width==66 {
+            width: 66.66%;
+          }
+          @if $width==33 {
+            width: 33.33%;
+          } @else {
+            width: $width#{"%"};
+          }
         }
-
-        @include min-width(1025px) {
-            width: 100%;
-            display: flex;
-            flex-wrap: wrap;
-
-            > li {
-                width: 50%;
-                padding-left: 10px;
-                padding-right: 10px;
-
-                $col-width: 100, 80, 75, 66, 60, 50, 40, 33, 25, 20;
-
-                @each $width in $col-width {
-                    &.col-#{$width} {
-                        @if $width==66 {
-                            width: 66.66%;
-                        }
-                        @if $width==33 {
-                            width: 33.33%;
-                        }
-                        @else {
-                            width: $width#{'%'};
-                        }
-                    }
-                }
-            }
-
-            img {
-                width: 100%;
-            }
-
-            // 圖片在左
-            &.align-left {
-                flex-direction: row;
-            }
-
-            // 圖片在右
-            &.align-right {
-                flex-direction: row-reverse;
-            }
-
-            // 垂直置中
-            &.align-h-center {
-                align-items: center;
-            }
-        }
-
-        h2, .h2,
-        h3, .h3,
-        h4, .h4 {
-            margin-top: 0px;
-        }
+      }
     }
+
+    img {
+      width: 100%;
+    }
+
+    // 圖片在左
+    &.align-left {
+      flex-direction: row;
+    }
+
+    // 圖片在右
+    &.align-right {
+      flex-direction: row-reverse;
+    }
+
+    // 垂直置中
+    &.align-h-center {
+      align-items: center;
+    }
+  }
+
+  h2,
+  .h2,
+  h3,
+  .h3,
+  h4,
+  .h4 {
+    margin-top: 0px;
+  }
+}
+
+.mt-rem {
+  margin-top: 2.5rem;
+
+  @include min-width(1025px) {
+    margin-top: 0;
+  }
+}
+
+.download-block {
+    margin-top: 2rem;
 }

@@ -1,166 +1,265 @@
 @charset "UTF-8";
 @import "./utils/_utils.scss";
 
-@mixin footer($language) {
+// * ==========================================================================
+// * FOOTER 區塊
+// * ==========================================================================
 
-    // * ==========================================================================
-    // * FOOTER 區塊
-    // * ==========================================================================
+#footer {
+    color: $color-white;
+    background-color: $color-gray-light;
+    position: relative;
+}
 
-    #footer {
-        color: $color-white;
-        background-color: $color-primary-2;
-        position: relative;
-    }
+// * ==========================================================================
+// * 贊助廠商
+// * ==========================================================================
 
-    // * ==========================================================================
-    // * 贊助廠商
-    // * ==========================================================================
+.sponsors {
+    position: relative;
+    display: none;
+    padding: 30px;
 
-    .sponsors {
-        display: none;
-        padding: 30px;
-
-        img {
-            max-width: 100%;
-            display: block;
-        }
-
-        @include min-width(1025px) {
-            display: flex;
-            justify-content: center;
-        }
-    }
-
-    // * ==========================================================================
-    // * 主要 FOOTER 區塊
-    // * ==========================================================================
-
-    .mainfooter {
-        position: relative;
-        color: $color-white;
-
-        @include min-width(1025px) {
-            display: flex;
-            justify-content: space-between;
-            border-top: 1px rgba($color-white,0.2) solid;
-        }
-
-        p {
-            font-size: 0.95rem;
-            line-height: 1.6em;
-            margin-bottom: 0px;
-            color: $color-white;
-        }
-
-        .side-left {
-            padding: 15px 20px;
-            color: $color-white;
-
-            @include min-width(1025px) {
-                padding-left: 30px;
-                padding-right: 30px;
-                display: flex;
-                align-items: center;
-            }
-        }
-
-        .side-right {
-            border-top: 1px rgba($color-white,0.2) solid;
-
-            @include min-width(1025px) {
-                border-top: none;
-            }
-        }
-    }
-
-    .footer-list {
-        display: flex;
-        flex-wrap: wrap;
-
-        @include min-width(1025px) {
-            flex-wrap: nowrap;
-            height: 100%;
-        }
-
-        > li {
-            width: 50%;
-            border: 1px rgba($color-white,0.2) solid;
-
-            @include min-width(480px + 1px) {
-                width: 25%;
-            }
-
-            @include min-width(1025px) {
-                width: 160px;
-                border-top: none;
-                border-bottom: none;
-                border-right: none;
-                display: flex;
-
-                @if $language == en {
-                    align-items: flex-start;
-                } @else if $language == jp {
-                    align-items: flex-start;
-                } @else {
-                    align-items: center;
-                }
-            }
-        }
-    }
-
-    .footer-btn {
-        width: 100%;
+    &::before{
+        content: '';
+        width: 700px;
+        height: 100%;
+        position: absolute;
+        z-index: 0;
+        top: -100px;
+        left: 0;
         display: block;
-        padding: 10px;
-        text-decoration: none;
+        background: url("../images/footer/footer-deco.png") no-repeat center/cover;
+
+        @include min-width(1400px){
+            width: 800px;
+        }
+    }
+
+    img {
+        max-width: 100%;
+        display: block;
+    }
+
+    @include min-width(1025px) {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        background-color: $color-white;
+    }
+}
+
+.sponsors-wrap {
+    position: relative;
+    z-index: 5;
+    @include min-width(1025px) {
+        display: flex;
+        align-items: center;
+    }
+}
+
+.sponsors-main {
+    @include min-width(1025px) {
+        display: flex;
+        align-items: center;
+        margin-right: 1rem;
+    }
+    @include min-width(1400px) {
+        margin-right: 2rem;
+    }
+}
+
+.sponsors-support {
+    @include min-width(1025px) {
+        display: flex;
+        align-items: center;
+    }
+}
+
+.sponsors-name {
+    margin-right: 1rem;
+
+    span {
+        font-weight: 900;
+        display: block;
+    }
+}
+.sponsors-main ul {
+    > li {
+        position: relative;
+        margin-right: 3rem;
+        &:first-child {
+            &::after {
+                content: "";
+                position: absolute;
+                right: -23.5px;
+                top: 0;
+                display: block;
+                width: 1px;
+                height: 100%;
+                background-color: #000;
+            }
+        }
+    }
+}
+
+.sponsors-item {
+    @include min-width(1025px) {
+        display: flex;
+    }
+    > li {
+        > img {
+            width: 150px;
+            height: 100%;
+            @include min-width(1400px) {
+                width: 200px;
+            }
+        }
+    }
+}
+
+.sponsors-logo {
+    vertical-align: middle;
+    width: 150px;
+    @include min-width(1400px) {
+        width: 200px;
+    }
+    img {
+        width: 100%;
+        height: 100%;
+    }
+}
+
+// * ==========================================================================
+// * 主要 FOOTER 區塊
+// * ==========================================================================
+
+.mainfooter {
+    position: relative;
+    color: $color-white;
+
+    @include min-width(1025px) {
+        display: flex;
+        justify-content: space-between;
+        border-top: 1px rgba($color-white, 0.2) solid;
+    }
+
+    p {
+        font-size: 0.95rem;
+        line-height: 1.6em;
+        margin-bottom: 0px;
+        color: $color-white;
+    }
+
+    .side-left {
+        padding: 15px 20px;
+        color: $color-white;
 
         @include min-width(1025px) {
-            &:hover, &:focus {
-                > span::before {
-                    transform: translateY(-5px);
-                }
-            }
+            padding-left: 30px;
+            padding-right: 30px;
+            display: flex;
+            align-items: center;
+        }
+    }
+
+    .side-right {
+        border-top: 1px rgba($color-white, 0.2) solid;
+
+        @include min-width(1025px) {
+            border-top: none;
+        }
+    }
+}
+
+.footer-list {
+    display: flex;
+    flex-wrap: wrap;
+
+    @include min-width(1025px) {
+        flex-wrap: nowrap;
+        height: 100%;
+    }
+
+    > li {
+        width: 50%;
+        border: 1px rgba($color-white, 0.2) solid;
+
+        @include min-width(480px + 1px) {
+            width: 25%;
         }
 
-        > span {
+        @include min-width(1025px) {
+            width: 160px;
+            border-top: none;
+            border-bottom: none;
+            border-right: none;
+            display: flex;
+            align-items: center;
+
+            @at-root html[lang="en"] & {
+                align-items: flex-start;
+            }
+
+            @at-root html[lang="ja"] & {
+                align-items: flex-start;
+            }
+        }
+    }
+}
+
+.footer-btn {
+    width: 100%;
+    display: block;
+    padding: 10px;
+    text-decoration: none;
+
+    @include min-width(1025px) {
+        &:hover,
+        &:focus {
+            > span::before {
+                transform: translateY(-5px);
+            }
+        }
+    }
+
+    > span {
+        display: block;
+        line-height: 1.2em;
+        font-size: 0.95rem;
+        text-align: center;
+        color: $color-white;
+
+        &::before {
+            content: "";
+            width: 40%;
+            height: 0px;
+            padding-bottom: 40%;
             display: block;
-            line-height: 1.2em;
-            font-size: 0.95rem;
-            text-align: center;
-            color: $color-white;
-
-            &::before {
-                content: '';
-                width: 40%;
-                height: 0px;
-                padding-bottom: 40%;
-                display: block;
-                margin: 10px auto;
-                border-radius: 100%;
-                background: {
-                    position: center;
-                    repeat: no-repeat;
-                    size: contain;
-                }
-                transition: transform 0.3s;
+            margin: 10px auto;
+            border-radius: 100%;
+            background: {
+                position: center;
+                repeat: no-repeat;
+                size: contain;
             }
+            transition: transform 0.3s;
         }
+    }
 
-        &.icon-position > span::before {
-            background-image: url('../images/icon/footerInfo_position.svg');
-        }
-        
-        &.icon-info > span::before {
-            background-image: url('../images/icon/footerInfo_info.svg');
-        }
-        
-        &.icon-member > span::before {
-            background-image: url('../images/icon/footerInfo_member.svg');
-        }
-        
-        &.icon-facebook > span::before {
-            background-image: url('../images/icon/footerInfo_facebook.svg');
-        }
+    &.icon-position > span::before {
+        background-image: url("../images/icon/footerInfo_position.svg");
+    }
+
+    &.icon-info > span::before {
+        background-image: url("../images/icon/footerInfo_info.svg");
+    }
+
+    &.icon-member > span::before {
+        background-image: url("../images/icon/footerInfo_member.svg");
+    }
+
+    &.icon-facebook > span::before {
+        background-image: url("../images/icon/footerInfo_facebook.svg");
     }
 }

@@ -1,174 +1,178 @@
 @charset "UTF-8";
 @import "./utils/_utils.scss";
 
-@mixin menu($language) {
+// * ==========================================================================
+// * 手機板會出現的 MENU 漢堡選單按鈕
+// * ==========================================================================
 
-    // * ==========================================================================
-    // * 手機板會出現的 MENU 漢堡選單按鈕
-    // * ==========================================================================
+.menu-mobile-btn {
+    width: $mainHeader-height;
+    height: $mainHeader-height;
+    display: block;
+    background: url("../images/icon/menu.svg") no-repeat center/70%;
+    color: $color-white;
 
-    .menu-mobile-btn {
-        width: $mainHeader-height;
-        height: $mainHeader-height;
+    @include hidetext;
+
+    @include min-width(1025px) {
+        display: none;
+    }
+}
+
+// * ==========================================================================
+// * MENU 選單
+// * ==========================================================================
+
+#menu {
+    width: 100%;
+    max-height: calc(100% - #{$mainHeader-height});
+    display: none;
+    position: fixed;
+    top: $mainHeader-height;
+    left: 0px;
+    z-index: 2000;
+    box-shadow: 0px 5px 7px rgba($color-black, 0.3);
+    overflow-x: hidden;
+    overflow-y: auto;
+
+    @include min-width(1025px) {
+        height: $menu-height;
+        max-height: none;
         display: block;
-        background: url('../images/icon/menu.svg') no-repeat center/70%;
-        color: $color-white;
+        position: absolute;
+        top: auto;
+        bottom: 0px;
+        box-shadow: none;
+        overflow-x: visible;
+        overflow-y: visible;
 
-        @include hidetext;
+        // 電腦版定在畫面上方
+        &.is-fixed {
+            position: fixed;
+            top: 0px;
+            bottom: auto;
+        }
+    }
 
+    > ul {
+        width: 100%;
+
+        @include min-width(1025px) {
+            display: flex;
+            align-items: center;
+        }
+
+        > li {
+            &:nth-child(-n + 4) {
+                border-right: 0.5px solid $color-brown-light;
+            }
+
+            @include min-width(1025px) {
+                flex-grow: 1;
+                flex-basis: 0px;
+            }
+        }
+    }
+
+    // 被複製到 MENU 選單的項目
+    .bring-item {
         @include min-width(1025px) {
             display: none;
         }
     }
 
-    // * ==========================================================================
-    // * MENU 選單
-    // * ==========================================================================
-
-    #menu {
-        width: 100%;
-        max-height: calc(100% - #{$mainHeader-height});
-        display: none;
-        position: fixed;
-        top: $mainHeader-height;
-        left: 0px;
-        z-index: 2000;
-        box-shadow: 0px 5px 7px rgba($color-black, 0.3);
-        overflow-x: hidden;
-        overflow-y: auto;
-
-        @include min-width(1025px) {
-            height: $menu-height;
-            max-height: none;
+    // MENU 選單裡面的連結（手機版）
+    @include max-width(1024px) {
+        a {
+            width: 100%;
+            min-height: 50px;
+            line-height: 1.4em;
             display: block;
-            position: absolute;
-            top: auto;
-            bottom: 0px;
-            box-shadow: none;
-            overflow-x: visible;
-            overflow-y: visible;
-
-            // 電腦版定在畫面上方
-            &.is-fixed {
-                position: fixed;
-                top: 0px;
-                bottom: auto;
-            }
-        }
-
-        > ul {
-            width: 100%;
-
-            @include min-width(1025px) {
-                display: flex;
-                align-items: center;
-            }
-
-            > li {
-                @include min-width(1025px) {
-                    flex-grow: 1;
-                    flex-basis: 0px;
-                }
-            }
-        }
-
-        // 被複製到 MENU 選單的項目
-        .bring-item {
-            @include min-width(1025px) {
-                display: none;
-            }
-        }
-
-        // MENU 選單裡面的連結（手機版）
-        @include max-width(1024px) {
-            a {
-                width: 100%;
-                min-height: 50px;
-                line-height: 1.4em;
-                display: block;
-                padding-top: 10px;
-                padding-bottom: 10px;
-                text-align: center;
-                text-decoration: none;
-                font-size: 1.25rem;
-                color: $color-white;
-                background-color: $color-primary-2;
-
-                &:not(.language-btn).current {
-                    background-color: $color-primary-1;
-                }
-            }
-
-            .language-btn {
-                &.current {
-                    background-color: $color-primary-1;
-                }
-            }
-        }
-    }
-
-    // MENU 選單裡面的連結（電腦版）
-    .menu-btn {
-        @include min-width(1025px) {
-            width: 100%;
-            height: $menu-height;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 10px;
-            font-size: 1.4rem;
-            font-weight: bold;
+            padding-top: 10px;
+            padding-bottom: 10px;
             text-align: center;
             text-decoration: none;
+            font-size: 1.25rem;
             color: $color-white;
             background-color: $color-primary-2;
-            transition: all 0.2s ease-in-out;
-            position: relative;
-        
-            > span {
-                max-height: 60px;
-                line-height: 30px;
-                color: $color-white;
-                text-overflow: ellipsis;
-                display: -webkit-box;
-                -webkit-box-orient: vertical;
-                -webkit-line-clamp: 2;
-                overflow: hidden;
-            }
 
+            &:not(.language-btn).current {
+                background-color: $color-primary-1;
+            }
+        }
+
+        .language-btn {
             &.current {
                 background-color: $color-primary-1;
             }
+        }
+    }
+}
 
-            // 把 Before 隱藏就沒有箭頭
+// MENU 選單裡面的連結（電腦版）
+.menu-btn {
+    @include min-width(1025px) {
+        width: 100%;
+        height: $menu-height;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 10px;
+        font-size: 1.4rem;
+        font-weight: bold;
+        text-align: center;
+        text-decoration: none;
+        color: $color-white;
+        background-color: $color-primary-2;
+        transition: all 0.2s ease-in-out;
+        position: relative;
+
+        > span {
+            max-height: 60px;
+            line-height: 30px;
+            color: $color-white;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 2;
+            overflow: hidden;
+        }
+
+        &.current {
+            background-color: $color-primary-1;
+        }
+
+        // 把 Before 隱藏就沒有箭頭
+        &::before {
+            content: "";
+            width: 0;
+            height: 0;
+            display: block;
+            border-style: solid;
+            border-width: 20px 15px 0 15px;
+            border-color: $color-primary-1 transparent transparent transparent;
+            position: absolute;
+            left: calc((100% - 20px) / 2);
+            bottom: -15px;
+            transition: opacity 0.2s ease-in-out;
+            opacity: 0;
+        }
+
+        &:hover,
+        &:focus,
+        &.current {
             &::before {
-                content: '';
-                width: 0;
-                height: 0;
-                display: block;
-                border-style: solid;
-                border-width: 20px 15px 0 15px;
-                border-color: $color-primary-1 transparent transparent transparent;
-                position: absolute;
-                left: calc((100% - 20px)/2);
-                bottom: -15px;
-                transition: opacity 0.2s ease-in-out;
-                opacity: 0;
+                opacity: 1;
             }
+        }
 
-            &:hover, &:focus, &.current {
-                &::before {
-                    opacity: 1;
-                }
-            }
+        &:hover,
+        &:focus {
+            background-color: $color-primary-1;
+        }
 
-            &:hover, &:focus {
-                background-color: $color-primary-1;
-            }
-
-            &:focus {
-                box-shadow: $focus-border-inset;
-            }
+        &:focus {
+            box-shadow: $focus-border-inset;
         }
     }
 }
