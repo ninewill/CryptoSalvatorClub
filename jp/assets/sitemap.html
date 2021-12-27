@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="format-detection" content="telephone=no">
+    <!--※ 提醒小幫手-->
+    <!--每一頁的 title 要改成「展覽名稱_單元名稱」-->
+    <title>展覽名稱_單元名稱</title>
+    <!-- @@include ../layout/_resources.html -->
+</head>
+<body class="no-js">
+    <!-- @@include ../layout/_noscript.html -->
+    <div id="wrapper">
+        <a href="#c" class="firstGoTo-btn" tabindex="1" title="メインコンテンツへ移動">メインコンテンツへ移動</a>
+        <header id="header">
+            <div class="mainheader">
+                <!-- @@include ../layout/_header_logo.html -->
+                <div class="topnav">
+                    <!-- @@include ../layout/_header_topnav.html -->
+                    <ul class="topnav-item language">
+                        <!--※ 提醒小幫手-->
+                        <!--在單元頁面切換語文版時，請切換至原單元頁而非首頁-->
+                        <!--如在 ch/page-2.html 選擇英文版，需連結到 en/page-2.html -->
+                        <li><a href="../ch/sitemap.html" class="language-btn" title="中文">中文</a></li>
+                        <li><a href="../en/sitemap.html" class="language-btn" title="EN">EN</a></li>
+                        <li><a href="../jp/sitemap.html" class="language-btn current" title="日本語">日本語</a></li>
+                    </ul>
+                </div>
+                <a href="javascript:;" class="menu-mobile-btn" title="Menu Button">Menu Button</a>
+            </div>
+            <!-- @@include ../layout/_banner.html -->
+            <nav id="menu">
+                <a href="#l" id="l" accesskey="l" class="acc" title="中間のメニュー(L)">:::</a>
+                <ul>
+                    <!--※ 提醒小幫手-->
+                    <!--當前頁面記得添加「current」這個 class-->
+                    <!--如果是單頁式網頁的網站導覽，href 請記得改成「./page-1.html#section-X」 -->
+
+                    <li><a href="./page-1.html#main" class="menu-btn" title="展示概要"><span>展示概要</span></a></li>
+                    <li><a href="./page-2.html#main" class="menu-btn" title="內頁02"><span>內頁02</span></a></li>
+                    <li><a href="./page-3.html#main" class="menu-btn" title="內頁03"><span>內頁03</span></a></li>
+                    <li><a href="./page-4.html#main" class="menu-btn" title="內頁04"><span>內頁04</span></a></li>
+                    <li class="bring-item"><a href="./sitemap.html#main" class="current" title="サイトマップ">サイトマップ</a></li>
+                </ul>
+            </nav>
+        </header>
+        <div id="main">
+            <a href="#c" id="c" accesskey="c" class="acc" title="中間のメインコンテンツ(C)">:::</a>
+
+            <div id="content">
+                <div class="wrap">
+
+                    <div class="title-zone">
+                        <h1 class="title">サイトマップ</h1>
+                    </div>
+                    
+                    <div class="navbar">
+                        <!-- @@include ../layout/_navbar.html -->
+                    </div>
+
+                    <h2 class="h3">無障害サイト設計の説明</h2>
+
+                    <p>当サイトは「バリアフリーウェブサイト開発規範」の原則に基づいて設計されています。バリアフリーウェブサイトの設計規範に従って、ショートカットキー、サイトナビゲイター、アクセスキーなどをご提供しています。下記は当サイトで使用できるアクセスキーの操作方法です。</p>
+
+                    <ol>
+                        <li>上部のメニュー</li>
+                        <li>中間のメニュー </li>
+                        <li>中間のメインコンテンツ</li>
+                        <li>下部のメニュー </li>
+                    </ol>
+
+                    <p>
+                        Alt+U (IE), Alt+Shift+U (Firefox)：上部メインメニューのリンクエリア。<br>
+                        Alt+L (IE), Alt+Shift+L (Firefox)：左側メニューのリンクエリア、このブロックは各単元のサブメニューにリンク。<br>
+                        Alt+C (IE), Alt+Shift+C (Firefox)：メインコンテンツの表示エリア、このブロックは各サイトページのコンテンツが表示されます。<br>
+                        Alt+B (IE), Alt+Shift+B (Firefox)：下部メニューのリンクエリア。
+                    </p>
+
+                    <ul class="sitemap-link">
+
+                        <!--※ 提醒小幫手-->
+                        <!--如果是單頁式網頁的網站導覽，href 請記得改成「./page-1.html#section-X」 -->
+
+                        <li><a href="./page-1.html#main" class="sitemap-link-btn" title="展示概要">展示概要</a></li>
+                        <li><a href="./page-2.html#main" class="sitemap-link-btn" title="內頁02">內頁02</a></li>
+                        <li><a href="./page-3.html#main" class="sitemap-link-btn" title="內頁03">內頁03</a></li>
+                        <li><a href="./page-4.html#main" class="sitemap-link-btn" title="內頁04">內頁04</a></li>
+                        <li><a href="./sitemap.html#main" class="sitemap-link-btn" title="サイトマップ">サイトマップ</a></li>
+                    </ul>
+
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+            <!-- @@include ../layout/_footer.html -->
+        </footer>
+
+        <!-- @@include ../layout/_floatbtn.html -->
+
+    </div>
+    <!-- @@include ../layout/_install.html -->
+
+    <!-- @@include ../layout/_ga.html -->
+</body>
+</html>
