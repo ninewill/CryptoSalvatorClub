@@ -12,7 +12,7 @@
     margin-bottom: 0px;
     font-size: 0rem;
     position: relative;
-    background: url('../images/visual-mobile.jpg') no-repeat center/cover;
+    background: url('https://dummyimage.com/768x1024/FEC7AD/000') no-repeat center/cover;
 
     @include min-width(769px) {
         height: 100%;
@@ -20,7 +20,7 @@
         position: absolute;
         top: 0px;
         left: 0px;
-        background-image: url('https://dummyimage.com/1920x878/FEAEDE/000000');
+        background-image: url('https://dummyimage.com/1920x878/FEC7AD/000000');
     }
 
     @include min-width(1025px) {

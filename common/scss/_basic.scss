@@ -32,20 +32,22 @@ body {
     display: none;
     @include min-width(767px) {
       display: block;
-      width: 1rem;
+      width: 0.8rem;
     }
 
     @include min-width(1024px) {
-      width: 1.5rem;
+      width: 1rem;
     }
   }
 
   &::-webkit-scrollbar-track {
-    background-color: $color-white-rice;
+    background-color: $color-primary-1;
   }
 
   &::-webkit-scrollbar-thumb {
-    background-color: $color-brown-light;
+    background-color: $color-aplha;
+    border: 2px solid $color-primary-2;
+    padding: 1rem;
 
     &:active {
       background-color: $color-primary-2;

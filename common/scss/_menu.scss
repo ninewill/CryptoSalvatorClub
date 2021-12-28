@@ -64,7 +64,7 @@
 
         > li {
             &:nth-child(-n + 4) {
-                border-right: 0.5px solid $color-brown-light;
+                border-right: 0.5px solid $color-purple;
             }
 
             @include min-width(1025px) {
