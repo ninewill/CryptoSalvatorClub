@@ -838,7 +838,7 @@ yx-axis
 
 .mCS-light-thin.mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar,
 .mCS-dark-thin.mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar {
-  width: 2px;
+  width: 5px;
 }
 
 .mCS-light-thin.mCSB_scrollTools_horizontal .mCSB_draggerRail,
@@ -856,26 +856,26 @@ yx-axis
 /* theme "dark-thin" custom boat color system*/
 
 .mCS-dark-thin.mCSB_scrollTools .mCSB_draggerRail {
-  background-color: #e6a831;
+  background-color: #7DAFFF7e;
   background-color: rgba(0, 0, 0, 0.15);
 }
 
 .mCS-dark-thin.mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar {
-  background-color: #e6a831;
-  background-color: #e6a831;
+  background-color: #7DAFFF7e;
+  background-color: #7DAFFF7e;
 }
 
 .mCS-dark-thin.mCSB_scrollTools .mCSB_dragger:hover .mCSB_dragger_bar {
-  background-color: #e6a831;
-  background-color: #bf8019;
+  background-color: #7DAFFF7e;
+  background-color: #7DAFFF;
 }
 
 .mCS-dark-thin.mCSB_scrollTools .mCSB_dragger:active .mCSB_dragger_bar,
 .mCS-dark-thin.mCSB_scrollTools
   .mCSB_dragger.mCSB_dragger_onDrag
   .mCSB_dragger_bar {
-  background-color: #e6a831;
-  background-color: #bf8019;
+  background-color: #7DAFFF7e;
+  background-color: #7DAFFF;
 }
 
 .mCS-dark-thin.mCSB_scrollTools .mCSB_buttonUp {

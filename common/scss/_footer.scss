@@ -235,15 +235,15 @@
         background-image: url("../images/icon/footerInfo_position.svg");
     }
 
-    &.icon-info > span::before {
-        background-image: url("../images/icon/footerInfo_info.svg");
+    &.icon-discord > span::before {
+        background-image: url("../images/icon/discord-white.svg");
     }
 
-    &.icon-member > span::before {
-        background-image: url("../images/icon/footerInfo_member.svg");
+    &.icon-twitter > span::before {
+        background-image: url("../images/icon/twitter-white.svg");
     }
 
-    &.icon-facebook > span::before {
-        background-image: url("../images/icon/footerInfo_facebook.svg");
+    &.icon-instagram > span::before {
+        background-image: url("../images/icon/Instagram-white.svg");
     }
 }

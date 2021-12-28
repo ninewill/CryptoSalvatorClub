@@ -5,6 +5,10 @@
 // * 輪播
 // * ==========================================================================
 
+.nav-carousel{
+	margin-top: 5rem;
+}
+
 .carousel-nft-wrap{
 	display: flex;
 	justify-content: space-between;
@@ -12,6 +16,10 @@
 
 .carousel-nft-info{
 	width: 49%;
+}
+
+.carousel-nft-info-wrap{
+	height: 305px;
 }
 
 .carousel-nft{

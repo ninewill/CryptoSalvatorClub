@@ -670,6 +670,11 @@ if ($(window).width() < 767) {
 } else {
   // 當視窗寬度不小於767px時執行
 
+	$(".carousel-nft-info-wrap").mCustomScrollbar({
+    axis: "y", // horizontal scrollbar
+    theme: "dark-thin", //theme
+  });
+
   $(".scrollBox").mCustomScrollbar({
     axis: "y", // horizontal scrollbar
     theme: "dark-thin", //theme

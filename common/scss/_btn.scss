@@ -1,0 +1,94 @@
+@charset "UTF-8";
+@import "./utils/_utils.scss";
+
+// * ==========================================================================
+// * 動態按鈕
+// * ==========================================================================
+
+:root {
+	--bg: #3C465C;
+	--primary: #78FFCD;
+	--solid: #fff;
+	--btn-w: 10em;
+	--dot-w: calc(var(--btn-w)*.2);
+	--tr-X: calc(var(--btn-w) - var(--dot-w));
+}
+
+
+.mint{
+	margin-top: 3rem;
+	text-align: center;
+	
+	>.h2{
+		margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: 64px;
+    line-height: 80px;
+    text-transform: none;
+		color: $color-white;
+	}
+
+	>.h3{
+		margin-top: 0;
+		margin-bottom: 10px;
+    font-size: 20px;
+    line-height: 34px;
+    font-weight: 400;
+		color: $color-white;
+	}
+}
+
+.mint-btn {
+	position: relative;
+	margin: 0 auto;
+	margin-top: 3rem;
+	width: var(--btn-w);
+	color: $color-coral;
+	border: .15em solid $color-coral;
+	border-radius: 5em;
+	text-transform: uppercase;
+	text-align: center;
+	font-size: 1.3em;
+	line-height: 2em;
+	cursor: pointer;	
+
+	>span{
+		color: $color-coral;
+	}
+}
+
+.dot {
+	content: '';
+	position: absolute;
+	top: 0;
+	width: var(--dot-w);
+	height: 100%;
+	border-radius: 100%;
+	transition: all 300ms ease;
+	display: none;
+}
+.dot:after {
+	content: '';
+	position: absolute;
+	left: calc(50% - .4em);
+	top: -.4em;
+	height: .8em;
+	width: .8em;
+	background: $color-coral;
+	border-radius: 1em;
+	border: .25em solid var(--solid);
+	box-shadow: 0 0 .7em var(--solid),
+				0 0 2em $color-coral;
+}
+.mint-btn:hover .dot,
+.mint-btn:focus .dot {
+	animation: atom 2s infinite linear;
+	display: block;
+}
+@keyframes atom {
+	0% {transform: translateX(0) rotate(0);}
+	30%{transform: translateX(var(--tr-X)) rotate(0);}
+	50% {transform: translateX(var(--tr-X)) rotate(180deg);}
+	80% {transform: translateX(0) rotate(180deg);}
+	100% {transform: translateX(0) rotate(360deg);}
+}

@@ -1,11 +1,11 @@
-.animate-item{
+.animate-item {
   position: relative;
   width: 50%;
   height: 100%;
   margin-left: auto;
   margin-right: 0;
   display: none;
-  @include min-width(768px){
+  @include min-width(768px) {
     display: block;
   }
   // background-image: url('../images/animate/earth.png');
@@ -13,36 +13,83 @@
   // background-repeat: no-repeat;
   // background-size: cover;
 
-  >li{
+  > li {
     position: absolute;
     background-position: 50% 50%;
     background-repeat: no-repeat;
     background-size: cover;
 
-    >img{
+    > img {
       width: 100%;
     }
   }
 }
 
-.boat{
+.boat {
   width: 250px;
   height: 200px;
-  background-image: url('../images/animate/boat.png');
+  background-image: url("../images/animate/boat.png");
   transform: scale(1);
 
-
-  @include min-width(768px){
+  @include min-width(768px) {
     margin-top: 10%;
     margin-left: 50%;
   }
-  @include min-width(1024px){
+  @include min-width(1024px) {
     margin-top: 5%;
     margin-left: 35%;
   }
 
-  @include max-height(700px){
+  @include max-height(700px) {
     margin-top: 0%;
     margin-left: 25%;
   }
+}
+
+//無限輪播圖片
+.scroll-img {
+	margin-bottom: 100px;
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(-200px * 7));
+  }
+}
+.slider {
+  width: 100%;
+  height: 200px;
+  margin: auto;
+  overflow: hidden;
+  position: relative;
+}
+.slider::before,
+.slider::after {
+  /*   background: linear-gradient(to right, white 0%, rgba(255, 255, 255, 0) 100%); */
+  content: "";
+  width: 200px;
+  height: 200px;
+  position: absolute;
+  z-index: 2;
+}
+.slider::after {
+  right: 0;
+  top: 0;
+  transform: rotateZ(180deg);
+}
+.slider::before {
+  left: 0;
+  top: 0;
+}
+.slider .slide-track {
+  animation: scroll 50s linear infinite;
+  display: flex;
+  width: calc(200px * 14);
+}
+.slider .slide {
+  width: 200px;
+  height: 200px;
 }
