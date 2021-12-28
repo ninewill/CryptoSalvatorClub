@@ -18,15 +18,16 @@ $color-primary-3: #e7e4e4;
 
 // 次要配色
 $color-white-rice: #f1ede4;
-$color-gray-light: #7f7467;
 $color-brown-light: #e6a831;
-$color-coral: #fe7c96;
+$color-blue: #7DAFFF;
+$color-green: #7DED94;
+$color-coral: #D46BAE;
 $color-purple: #9094e6;
 $color-aplha: #ffffff7a;
 
 // FOCUS 時的外框
-$focus-border: 0 0 0 0.2rem rgba($color-orange, 0.5);
-$focus-border-inset: inset 0 0 0 0.2rem rgba($color-orange, 0.8);
+$focus-border: 0 0 0 0.2rem rgba($color-green, 0.5);
+$focus-border-inset: inset 0 0 0 0.2rem rgba($color-green, 0.8);
 
 // 行動版 HEADER BAR 的高度
 $mainHeader-height: 50px;

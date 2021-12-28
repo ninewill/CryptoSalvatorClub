@@ -178,11 +178,6 @@ $btn-size: 50px;
             background-color: #00aced;
             background-image: url("../images/icon/twitter.svg");
         }
-
-        &.icon-plurk {
-            background-color: #c6602b;
-            background-image: url("../images/icon/plurk.svg");
-        }
     }
 }
 
@@ -191,7 +186,7 @@ $btn-size: 50px;
 // * ==========================================================================
 
 .language {
-    border: 3px $color-primary-2 solid;
+    border: 3px $color-primary-1 solid;
     overflow: hidden;
 
     > li {
@@ -210,19 +205,19 @@ $btn-size: 50px;
         font-size: 1rem;
         font-weight: bold;
         color: $color-white;
-        background-color: $color-primary-2;
+        background-color: $color-primary-1;
         transition: all 0.2s ease-in-out;
 
         &.current {
-            color: $color-primary-2;
-            background-color: $color-white-rice;
+            color: $color-primary-1;
+            background-color: $color-primary-2;
         }
 
         @include min-width(1025px) {
             &:hover,
             &:focus {
-                color: $color-primary-2;
-                background-color: $color-white-rice;
+                color: $color-primary-1;
+                background-color: $color-primary-2;
             }
 
             &:focus {

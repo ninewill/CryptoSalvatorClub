@@ -493,7 +493,11 @@ $(function () {
         slidesPerView: 1,
         spaceBetween: 30,
         autoHeight: true,
-        loop: false,
+        loop: true,
+				autoplay: {
+          delay: 3000,
+          disableOnInteraction: false,
+        },
         navigation: {
           nextEl: ".carousel-btn-next",
           prevEl: ".carousel-btn-prev",

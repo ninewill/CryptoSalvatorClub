@@ -7,7 +7,7 @@
 
 #footer {
     color: $color-white;
-    background-color: $color-gray-light;
+    background-color: $color-blue;
     position: relative;
 }
 
@@ -19,22 +19,6 @@
     position: relative;
     display: none;
     padding: 30px;
-
-    &::before{
-        content: '';
-        width: 700px;
-        height: 100%;
-        position: absolute;
-        z-index: 0;
-        top: -100px;
-        left: 0;
-        display: block;
-        background: url("../images/footer/footer-deco.png") no-repeat center/cover;
-
-        @include min-width(1400px){
-            width: 800px;
-        }
-    }
 
     img {
         max-width: 100%;

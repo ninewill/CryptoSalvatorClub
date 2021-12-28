@@ -5,6 +5,20 @@
 // * 輪播
 // * ==========================================================================
 
+.carousel-nft-wrap{
+	display: flex;
+	justify-content: space-between;
+}
+
+.carousel-nft-info{
+	width: 49%;
+}
+
+.carousel-nft{
+	position: relative;
+	width: 49%;
+}
+
 .carousel {
     .swiper-wrapper {
         @include exclude-content {
@@ -92,7 +106,9 @@
         height: 20px;
         opacity: 1;
         outline: none;
-        background-color: $color-default;
+				background-color: $color-aplha;
+				border: 2px solid $color-primary-2;
+				margin: 0 10px;
 
         @include min-width(1025px) {
             &:focus {
@@ -102,6 +118,6 @@
     }
 
     .swiper-pagination-bullet-active {
-        background-color: $color-primary-1;
+        background-color: $color-primary-2;
     }
 }
