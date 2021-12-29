@@ -185,7 +185,7 @@
 
 @keyframes fill-text-color {
   to {
-    color: $color-primary-1;
+    color: $color-white;
   }
 }
 
@@ -201,7 +201,7 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background: $color-primary-2;
+    background: $color-white;
     transform: scaleX(0);
     transform-origin: left;
     animation: slide-in-out 1s cubic-bezier(0.75, 0, 0, 1) forwards;

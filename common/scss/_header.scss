@@ -21,7 +21,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: $color-primary-2;
+    background-color: $color-blue2;
     position: fixed;
     top: 0px;
     left: 0px;
@@ -186,7 +186,7 @@ $btn-size: 50px;
 // * ==========================================================================
 
 .language {
-    border: 3px $color-primary-1 solid;
+    border: 3px $color-blue3 solid;
     overflow: hidden;
 
     > li {
@@ -205,19 +205,19 @@ $btn-size: 50px;
         font-size: 1rem;
         font-weight: bold;
         color: $color-white;
-        background-color: $color-primary-1;
+        background-color: $color-blue3;
         transition: all 0.2s ease-in-out;
 
         &.current {
-            color: $color-primary-1;
-            background-color: $color-primary-2;
+            color: $color-blue3;
+            background-color: $color-blue2;
         }
 
         @include min-width(1025px) {
             &:hover,
             &:focus {
-                color: $color-primary-1;
-                background-color: $color-primary-2;
+                color: $color-blue3;
+                background-color: $color-blue2;
             }
 
             &:focus {
