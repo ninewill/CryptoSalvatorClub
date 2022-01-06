@@ -57,14 +57,14 @@
         top: 0px;
         left: 0px;
         color: $color-white;
-        background: url("../images/logo-mobile.svg") no-repeat center/contain;
+        background: url("../images/logo-pc.svg") no-repeat center/contain;
 
         @include hidetext;
     }
 
     @include min-width(1025px) {
-        width: 260px;
-        height: 56px;
+        width: 350px;
+        height: 75px;
         margin-left: 0px;
 
         > a {
