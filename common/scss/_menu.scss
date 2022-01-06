@@ -176,3 +176,10 @@
         }
     }
 }
+
+
+.not-open{
+	>span{
+		color: $color-gray-1;
+	}
+}
