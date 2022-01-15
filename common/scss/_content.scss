@@ -209,7 +209,6 @@
 
   ul {
     list-style: disc;
-    padding-left: 2em;
     margin-bottom: 1rem;
   }
 
@@ -238,6 +237,62 @@
   @include min-width(767px){
     display: inline-block;
 
+  }
+}
+
+// 內文注意事項
+.precautions{
+
+  .precautions-item{
+    width: 100%;
+    padding: 2rem;
+    border: 3px solid $color-white;
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.269);
+
+    .precautions-item-title{
+      margin-top: 0;
+    }
+
+    .precautions-list{
+      padding-left: 2rem;
+
+      li{
+        color: $color-white;
+        list-style: none;
+  
+        &::before{
+          content: "\25C6";
+          font-weight: 700;
+          padding-right: 10px;
+        }
+      }
+    }
+
+    .precautions-list2{
+      padding-left: 2rem;
+
+      li{
+        display: flex;
+        list-style: none;
+        color: $color-white;
+  
+        &::before{
+          content: "\25C7";
+          font-weight: 700;
+          padding-right: 10px;
+        }
+
+        >span{
+          color: $color-white;
+          display: block;
+          margin-right: 1rem;
+        }
+        >figure{
+          width: 100px;
+        }
+      }
+    }
   }
 }
 
