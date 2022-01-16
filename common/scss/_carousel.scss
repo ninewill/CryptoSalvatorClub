@@ -1,131 +1,152 @@
 @charset "UTF-8";
-@import "./utils/_utils.scss";
+@import './utils/_utils.scss';
 
 // * ==========================================================================
 // * 輪播
 // * ==========================================================================
 
-.nav-carousel{
-	margin-top: 5rem;
+.nav-carousel {
+  margin-top: 5rem;
 }
 
-.carousel-nft-wrap{
-	display: flex;
-	justify-content: space-between;
+.carousel-nft-wrap {
+  display: block;
+
+  @include min-width(1024px) {
+    display: flex;
+    justify-content: space-between;
+  }
 }
 
-.carousel-nft-info{
-	width: 49%;
+.carousel-nft-info {
+  @include min-width(1024px) {
+    width: 49%;
+  }
 }
 
-.carousel-nft-info-wrap{
-	height: 305px;
+.carousel-nft-info-wrap {
+  @include min-width(1024px) {
+    height: 305px;
+  }
 }
 
-.carousel-nft{
-	position: relative;
-	width: 49%;
+.carousel-nft {
+  position: relative;
+
+  @include min-width(1024px) {
+    width: 49%;
+  }
 }
 
 .carousel {
-    .swiper-wrapper {
-        @include exclude-content {
-            list-style: none;
-            padding-left: 0px;
-            margin-bottom: 0px;
-        }
-
-        @include max-width(1024px) {
-            display: block;
-            height: auto;
-        }
-
-        @at-root .no-js & {
-            display: block;
-        }
+  .swiper-wrapper {
+    @include exclude-content {
+      list-style: none;
+      padding-left: 0px;
+      margin-bottom: 0px;
     }
 
-    .swiper-pagination {
-        position: relative;
+    @include max-width(1024px) {
+      display: block;
+      height: auto;
     }
 
-    @include min-width(1025px) {
-        .exhibit {
-            padding-left: 50px;
-            padding-right: 50px;
-        }
+    @at-root .no-js & {
+      display: block;
     }
+
+    >li{
+      @include max-width(1024px) {
+        margin-bottom: 2rem;
+
+        &:last-child{
+          margin-bottom: 0;
+        }
+      }
+    }
+  }
+
+  .swiper-pagination {
+    position: relative;
+  }
+
+  @include min-width(1025px) {
+    .exhibit {
+      padding-left: 50px;
+      padding-right: 50px;
+    }
+  }
 }
 
 .carousel-btn {
-    display: none;
+  display: none;
 
-    @include min-width(1025px) {
-        width: 50px;
-        height: 50px;
-        display: block;
-        background: {
-            position: center;
-            repeat: no-repeat;
-            size: contain;
-        }
-        position: absolute;
-        top: 50%;
-        transform: translateY(-50%);
-        z-index: 10;
-        color: $color-black;
-    
-        @include hidetext;
+  @include min-width(1025px) {
+    width: 50px;
+    height: 50px;
+    display: block;
+    background: {
+      position: center;
+      repeat: no-repeat;
+      size: contain;
+    }
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+    color: $color-black;
 
-        @at-root .no-js & {
-            display: none;
-        }
+    @include hidetext;
 
-        &:focus {
-            box-shadow: $focus-border-inset;
-        }
+    @at-root .no-js & {
+      display: none;
     }
 
-    &.swiper-button-disabled {
-        opacity: 0.4;
-        cursor: no-drop;
+    &:focus {
+      box-shadow: $focus-border-inset;
     }
+  }
+
+  &.swiper-button-disabled {
+    opacity: 0.4;
+    cursor: no-drop;
+  }
 }
 
 .carousel-btn-next {
-    right: 0px;
-    background-image: url('../images/icon/arrow-right.svg');
+  right: 0px;
+  background-image: url('../images/icon/arrow-right.svg');
 }
 
 .carousel-btn-prev {
-    left: 0px;
-    background-image: url('../images/icon/arrow-left.svg');
+  left: 0px;
+  background-image: url('../images/icon/arrow-left.svg');
 }
 
 .carousel-pagination {
-    display: none;
+  display: none;
+
+  @include min-width(1025px) {
+    display: block;
+  }
+
+  .swiper-pagination-bullet {
+    width: 20px;
+    height: 20px;
+    opacity: 1;
+    outline: none;
+    background-color: $color-aplha;
+    border: 2px solid $color-primary-2;
+    margin: 0 10px;
 
     @include min-width(1025px) {
-        display: block;
+      &:focus {
+        box-shadow: $focus-border;
+      }
     }
+  }
 
-    .swiper-pagination-bullet {
-        width: 20px;
-        height: 20px;
-        opacity: 1;
-        outline: none;
-				background-color: $color-aplha;
-				border: 2px solid $color-primary-2;
-				margin: 0 10px;
-
-        @include min-width(1025px) {
-            &:focus {
-                box-shadow: $focus-border;
-            }
-        }
-    }
-
-    .swiper-pagination-bullet-active {
-        background-color: $color-primary-2;
-    }
+  .swiper-pagination-bullet-active {
+    background-color: $color-primary-2;
+  }
 }

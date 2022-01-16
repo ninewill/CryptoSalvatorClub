@@ -724,5 +724,8 @@ button.swiper-pagination-bullet {
 
 .nav-carousel{
 	position: relative;
-	height: 500px;
+  
+  @include min-width(1024px) {
+    height: 500px;
+  }
 }

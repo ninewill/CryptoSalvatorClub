@@ -48,7 +48,11 @@
 
 //無限輪播圖片
 .scroll-img {
-  margin-bottom: 100px;
+  margin-bottom: 50px;
+
+  @include min-width(1024px) {
+    margin-bottom: 100px;
+  }
 }
 
 .slider {
@@ -58,8 +62,12 @@
 
 .slide-track {
   display: flex;
-  width: 200%;
+  width: 500%;
   animation: bannermove 20s linear infinite;
+
+  @include min-width(1024px) {
+    width: 200%;
+  }
 
   > div {
     width: 100%;
